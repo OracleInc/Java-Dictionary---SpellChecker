@@ -6,14 +6,16 @@ import java.util.Scanner;
  *
  * @author makena
  */
-public class Dictionary_Spell_checker {
+public class Dictionary_Spell_checker implements Runnable  {
 
     private D dictionary;
-    final static String filePath = "/home/makena/Desktop";
+    final static String filePath = "/home/makena/Desktop/t.txt";
     final static char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
 
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        
     }
 
     Dictionary_Spell_checker() {
@@ -22,7 +24,7 @@ public class Dictionary_Spell_checker {
 
     }
 
-    void run() {
+    public void run() {
         Scanner scan = new Scanner(System.in);
         boolean done = false;
         String input;
