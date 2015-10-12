@@ -1,20 +1,25 @@
 package dictionary_spell_checker;
 
+import com.sun.jmx.snmp.tasks.Task;
 import java.util.Scanner;
 
 /**
  *
  * @author makena
  */
-public class Dictionary_Spell_checker implements Runnable  {
+public class Dictionary_Spell_checker {
 
-    private D dictionary;
+    private static D dictionary;
     final static String filePath = "/home/makena/Desktop/t.txt";
     final static char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
 
     public static void main(String[] args) {
         // TODO code application logic here
         
+        Thread runThread = new Thread(new Task("run"));
+        runThread.run();
+
+       
         
     }
 
@@ -23,7 +28,16 @@ public class Dictionary_Spell_checker implements Runnable  {
         dictionary.build(filePath);
 
     }
+    
+    private static class Task implements Runnable{
+        private String call;
+       
+        public Task(String caller){
+            this.call = call;
+        }
 
+
+    @Override
     public void run() {
         Scanner scan = new Scanner(System.in);
         boolean done = false;
@@ -44,4 +58,5 @@ public class Dictionary_Spell_checker implements Runnable  {
         }
 
     }
+}
 }
